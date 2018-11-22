@@ -155,6 +155,8 @@ public class MainActivity extends AppCompatActivity {
     private void updateLocation(){
         if (mCurrentLocation != null) {
 
+            Log.d(TAG,"(mCurrentLocation) time = "+mCurrentLocation.getTime());
+
             Log.d(TAG,"Lat: " + mCurrentLocation.getLatitude() + ", " +"Lng: " + mCurrentLocation.getLongitude());
             Log.d(TAG,"Last updated on: " + mLastUpdateTime);
 
@@ -221,4 +223,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initLocation();
+    }
 }
